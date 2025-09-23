@@ -51,3 +51,5 @@ class Locators:
     button_restore = (By.XPATH, ".//button[contains(text(),'Восстановить')]")
 
     ACTIVE_TAB = (By.XPATH, "//div[contains(@class,'tab_tab_type_current')]")
+
+    # Да

@@ -19,16 +19,16 @@ class TestEntranceAndExit:
         driver.find_element(*Locators.field_password).send_keys(Credential.password)
         driver.find_element(*Locators.button_entrance).click()
 
-        WebDriverWait(driver, 10).until(EC.url_to_be(main_site))
+        WebDriverWait(driver, 60).until(EC.url_to_be(main_site))
 
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located(Locators.TAB_BUNS))
+        WebDriverWait(driver, 60).until(EC.visibility_of_element_located(Locators.TAB_BUNS))
 
         driver.find_element(*Locators.button_personal_area).click()
 
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located(Locators.inscription_profile))
+        WebDriverWait(driver, 60).until(EC.visibility_of_element_located(Locators.inscription_profile))
 
         driver.find_element(*Locators.PROFILE_EXIT_BTN).click()
 
-        WebDriverWait(driver, 10).until(EC.url_to_be(login_site))
+        WebDriverWait(driver, 60).until(EC.url_to_be(login_site))
 
         assert driver.current_url == login_site

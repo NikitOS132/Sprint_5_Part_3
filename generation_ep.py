@@ -15,3 +15,5 @@ class EmailPasswordGenerator:
             self.password = ''.join(random.choices(string.ascii_letters + string.digits, k=password_length))
 
         return self.email, self.password
+    
+    # Да

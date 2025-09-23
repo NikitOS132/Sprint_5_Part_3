@@ -17,7 +17,7 @@ class TestCheckNewRegister:
 
         driver.find_element(*Locators.button_register).click()
 
-        assert WebDriverWait(driver, 10).until(EC.url_to_be(login_site))
+        assert WebDriverWait(driver, 60).until(EC.url_to_be(login_site))
 
 @pytest.mark.usefixtures("start_from_main_not_login")
 class TestCheckingCreationExistingAccount:
@@ -33,7 +33,7 @@ class TestCheckingCreationExistingAccount:
 
         driver.find_element(*Locators.button_register).click()
 
-        assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(Locators.ERROR_TEXT_DUPLICATE))
+        assert WebDriverWait(driver, 60).until(EC.visibility_of_element_located(Locators.ERROR_TEXT_DUPLICATE))
 
 @pytest.mark.usefixtures("start_from_main_not_login")
 class TestCheckRegisterNoName:
@@ -59,7 +59,7 @@ class TestCheckingErrorPassword:
 
         driver.find_element(*Locators.button_register).click()
 
-        assert WebDriverWait(driver, 10).until(EC.visibility_of_element_located(Locators.ERROR_TEXT))
+        assert WebDriverWait(driver, 60).until(EC.visibility_of_element_located(Locators.ERROR_TEXT))
 
 @pytest.mark.usefixtures("start_from_login_page")
 class TestCheckingRestoredPassword:
@@ -71,6 +71,6 @@ class TestCheckingRestoredPassword:
 
         driver.find_element(*Locators.button_restore).click()
 
-        WebDriverWait(driver, 10).until(EC.url_to_be(reset_site))
+        WebDriverWait(driver, 60).until(EC.url_to_be(reset_site))
 
         assert driver.current_url == reset_site

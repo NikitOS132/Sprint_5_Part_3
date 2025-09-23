@@ -7,3 +7,5 @@ class Credential:
     new_email = 'vita56@gmail.com'
     new_password = 'h4O03!fn'
     restored_password = '8v#gM1!C'
+
+    # Да

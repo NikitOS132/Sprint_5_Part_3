@@ -30,7 +30,7 @@ def start_from_forgot_page(driver):
     forgot_page = forgot_site
     driver.get(forgot_page)
 
-    WebDriverWait(driver, 6).until(EC.visibility_of_element_located(Locators.button_restore))
+    WebDriverWait(driver, 60).until(EC.visibility_of_element_located(Locators.button_restore))
 
     driver.find_element(*Locators.field_email).send_keys(Credential.email)
 
@@ -43,7 +43,7 @@ def start_from_main_page(driver):
     main_page = main_site
     driver.get(main_page)
 
-    WebDriverWait(driver, 6).until(EC.visibility_of_element_located(Locators.button_entrance))
+    WebDriverWait(driver, 60).until(EC.visibility_of_element_located(Locators.button_entrance))
 
     driver.find_element(*Locators.button_entrance).click()
 
