@@ -6,7 +6,7 @@ from curl import *
 from data import Credential
 
 @pytest.mark.usefixtures("start_from_register_page")
-class TestCheckNewRegister:
+class TestCheckRegisterSite:
     def test_something(self, driver, new_user):
 
         driver.find_element(*Locators.field_name).send_keys(new_user["name"])
@@ -19,10 +19,6 @@ class TestCheckNewRegister:
 
         assert WebDriverWait(driver, 60).until(EC.url_to_be(login_site))
 
-@pytest.mark.usefixtures("start_from_main_not_login")
-class TestCheckingCreationExistingAccount:
-    def test_something(self, driver):
-        
         driver.find_element(*Locators.inscription_login).click()
 
         driver.find_element(*Locators.field_name).send_keys(Credential.name)
@@ -35,9 +31,7 @@ class TestCheckingCreationExistingAccount:
 
         assert WebDriverWait(driver, 60).until(EC.visibility_of_element_located(Locators.ERROR_TEXT_DUPLICATE))
 
-@pytest.mark.usefixtures("start_from_main_not_login")
-class TestCheckRegisterNoName:
-    def test_something(self, driver):
+        driver.find_element(*Locators.inscription_button_entrance).click()
 
         driver.find_element(*Locators.inscription_login).click()
 
@@ -49,9 +43,9 @@ class TestCheckRegisterNoName:
 
         assert driver.current_url == register_site
 
-@pytest.mark.usefixtures("start_from_register_page")
-class TestCheckingErrorPassword:
-    def test_something(self, driver):
+        driver.find_element(*Locators.inscription_button_entrance).click()
+
+        driver.find_element(*Locators.inscription_login).click()
 
         driver.find_element(*Locators.field_email).send_keys(Credential.email)
 
